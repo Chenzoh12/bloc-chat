@@ -11,6 +11,11 @@
       url: '/',
       controller: 'HomeCtrl as home',
       templateUrl: '/templates/home.html'
+    })
+    .state('rooms', {
+      url: '/',
+      controller: 'RoomCtrl as roomControl',
+      templateUrl: '/templates/home.html'
     });
   }
 
