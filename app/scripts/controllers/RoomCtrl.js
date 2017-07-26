@@ -1,6 +1,7 @@
 (function() {
   function RoomCtrl(Room) {
-    this.roomList = Room();
+    this.roomList = Room;
+    //alert(this.roomList);
   }
   angular
     .module('blocChat')
