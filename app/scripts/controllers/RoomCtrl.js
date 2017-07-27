@@ -1,8 +1,8 @@
 (function() {
   function RoomCtrl(Room) {
-    this.roomList = Room;
-    //alert(this.roomList);
+    this.roomList = Room.all;
   }
+
   angular
     .module('blocChat')
     .controller('RoomCtrl', ['Room', RoomCtrl]);
