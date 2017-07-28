@@ -1,6 +1,6 @@
 <h1>Home Page</h1>
-<section class = "rooms-container" ng-controller="RoomCtrl as roomControl">
+<section class = "rooms-container">
   <div class="room-name" ng-repeat="room in roomControl.roomList">
-    {{ room.$value }}
+    {{ room.$id }}
   </div>
 </section>
