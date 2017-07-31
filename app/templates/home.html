@@ -1,6 +1,39 @@
-<h1>Home Page</h1>
-<section class = "rooms-container" ng-controller="RoomCtrl as roomControl">
-  <div class="room-name" ng-repeat="room in roomControl.roomList">
-    {{ room.$value }}
+<!DOCTYPE html>
+<html lang="en" ng-app="blocChat">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Bloc Chat</title>
+  </head>
+
+  <body class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+        <div ng-controller="ModalCtrl as $ctrl" class="row">
+            <h1 class="col-md-8">Bloc Chat</h1>
+
+            <button type="button" class="col-md-4 btn btn-default" ng-click="$ctrl.open()">New Room</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class ="col-md-2">
+          <div ng-repeat="room in roomControl.roomList">
+            {{ room.$value }}
+          </div>
+      </div>
+    </div>
   </div>
-</section>
+
+
+  </body>
+</html>
