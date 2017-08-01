@@ -7,13 +7,12 @@
     <div class="modal-body" id="modal-body">
       <h4 class="modal-body-directive" id="modal-body-directive">Enter a room name</h3>
         <div class="form-group">
-          <label for="newRoomName"></label>
-          <input type="string" class="form-control" >
+          <input type="text" name="newRoomName" ng-model="name" class="form-control" >
         </div>
     </div>
 
     <div class="modal-footer">
-      <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+      <button class="btn btn-primary" type="button" ng-click="$ctrl.submit(name)">OK</button>
       <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
     </div>
 
