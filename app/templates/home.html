@@ -13,26 +13,40 @@
     <title>Bloc Chat</title>
   </head>
 
-  <body class="container">
+  <body>
+    <div class="chatroom-left-panel container panel col-md-4">
 
-    <div class="row">
-      <div class="col-md-4">
-        <div ng-controller="ModalCtrl as $ctrl" class="row">
-            <h1 class="col-md-8">Bloc Chat</h1>
 
-            <button type="button" class="col-md-4 btn btn-default" ng-click="$ctrl.open()">New Room</button>
-        </div>
+      <div ng-controller="ModalCtrl as $ctrl" class="navbar" >
+        <h3 class = "col-md-5">Bloc Chat</h3>
+        <button type="button" class="btn btn-default col-md-4 top-buffer" ng-click="$ctrl.open()">New Room</button>
+      </div>
+
+
+      <div class="chatroom-list" ng-controller="RoomCtrl as roomControl">
+        <div class="room-name row align-justify" ng-repeat="room in roomControl.roomList" ng-click="roomControl.setActiveRoom(room)">{{ room.$value }}</div>
+      </div>
+
+
+    </div>
+
+
+
+
+
+    <div class="container messages col-md-8" ng-controller="RoomCtrl as roomControl">
+      <h2>{{ roomControl.activeRoom.$value }}</h2>
+      <div class="message row">
+
       </div>
     </div>
 
-    <div class="row">
-      <div class ="col-md-2">
-          <div ng-repeat="room in roomControl.roomList">
-            {{ room.$value }}
-          </div>
-      </div>
-    </div>
-  </div>
+
+
+
+
+
+
 
 
   </body>
