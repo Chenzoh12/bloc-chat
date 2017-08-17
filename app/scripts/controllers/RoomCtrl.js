@@ -1,24 +1,18 @@
-(function() {
-  function RoomCtrl(Room) {
-    var roomControl = this;
+angular.module('blocChat')
+    .controller('RoomCtrl', function(Room, $uibModal, $log, $document){
+        var roomControl = this;
+        roomControl.animationsEnabled = true;
 
-    roomControl.roomList = Room.all;
+        roomControl.open = function () {
+          var modalInstance = $uibModal.open({
+            animation: roomControl.animationsEnabled,
+            ariaLabelledBy: 'modal-title',
+            ariaDescribedBy: 'modal-body',
+            templateUrl: 'templates/newRoomModal.html',
+            controller: 'ModalInstanceCtrl',
+            controllerAs: 'modalControl',
+          });
+        };
 
-    //Active room object
-    roomControl.activeRoom = {};
-
-    /**
-    * @function setActiveRoom
-    * @desc Sets active chat room to display title and content
-    * @param
-    */
-    roomControl.setActiveRoom = function(room) {
-      roomControl.activeRoom = room;
-      console.log(roomControl.activeRoom.$value);
-    };
-  }
-
-  angular
-    .module('blocChat')
-    .controller('RoomCtrl', ['Room', RoomCtrl]);
-})();
+        this.roomList = Room.all;
+    });

@@ -1,14 +1,14 @@
 angular.module('blocChat')
   .controller('ModalInstanceCtrl', function($scope, $uibModalInstance){
-    var $ctrl = this;
+    var modalControl = this;
     // Get a reference to the database service make available to whole controller
     var database = firebase.database();
 
     var newRoom = {
-      newName: 'Room'
+      newName: ''
     };
     // Controller submit function
-    $ctrl.submit = function createNewRoom(name) {
+    modalControl.submit = function createNewRoom(name) {
       // A new room object
       newRoom.newName = name;
       // Write the new room's name in the room list
@@ -19,7 +19,7 @@ angular.module('blocChat')
       return firebase.database().ref().update(updates);
     };
 
-    $ctrl.cancel = function (result) {
+    modalControl.cancel = function (result) {
       $uibModalInstance.close();
     };
 
