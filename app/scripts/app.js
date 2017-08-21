@@ -7,10 +7,11 @@
   });
 
   $stateProvider
-    .state('roomControl', {
+    .state('home', {
       url: '/',
       controller: 'RoomCtrl as roomControl',
-      templateUrl: '/templates/home.html'
+      templateUrl: '/templates/home.html',
+      factory: 'MessageFactory as messageFactory'
     });
   }
 
