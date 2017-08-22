@@ -11,6 +11,7 @@
             </div>
             <ul class = "row">
                 <li ng-repeat="room in roomControl.roomList">
+                    <!-- ne function that calls both functions -->
                     <span ng-click="roomControl.setActiveRoom(room); roomControl.messages.getByRoomId(room.$value)">{{ room.$value }} </span>
                 </li>
             </ul>

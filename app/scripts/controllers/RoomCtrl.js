@@ -1,5 +1,5 @@
 angular.module('blocChat')
-    .controller('RoomCtrl', function(Room, $scope, $uibModal, $log, $document, MessageFactory){
+    .controller('RoomCtrl', function(Room, $scope, $uibModal, $log, $document, MessageFactory, $cookies){
         var roomControl = this;
         roomControl.messages = MessageFactory;
         roomControl.animationsEnabled = true;
@@ -23,6 +23,5 @@ angular.module('blocChat')
             var activeRoomName = room.$value;
             roomControl.activeRoom.name = activeRoomName;
         };
-
         this.roomList = Room.all;
     });
