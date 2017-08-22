@@ -3,9 +3,10 @@ angular.module('blocChat')
         var roomControl = this;
         roomControl.messages = MessageFactory;
         roomControl.animationsEnabled = true;
-        roomControl.activeRoom = {
-            name: ""
-        }
+        // Holds active room
+        roomControl.activeRoom;
+        roomControl.typedMessage = "";
+
         //Opens modal windown on button press
         roomControl.open = function () {
           var modalInstance = $uibModal.open({
@@ -19,9 +20,39 @@ angular.module('blocChat')
         };
 
         //Sets active room
-        roomControl.setActiveRoom = function (room) {
-            var activeRoomName = room.$value;
-            roomControl.activeRoom.name = activeRoomName;
+        roomControl.setActiveRoom = function (activeRoom) {
+            var activeRoomName = activeRoom;
+            roomControl.activeRoom.name = activeRoomName.$value;
         };
+
+        /*
+        * @function newMessage
+        * @desc Prepares a new chat message to be sent to current room
+        */
+        roomControl.newMessage = function() {
+
+            //Obtain message to send
+            var message = roomControl.typedMessage;
+            if(!message || message === "") {
+                alert("Please type a message to send");
+                return null;
+            }
+
+            var currentUser = $cookies.get('blocChatCurrentUser');
+            var currentTime = Date.now();
+
+            //Create & send new message object
+            var messageObj = {
+                content: message,
+                roomId: roomControl.activeRoom.$value,
+                sentAt: currentTime,
+                username: currentUser
+            };
+
+            roomControl.messages.send(messageObj);
+            roomControl.typedMessage = "";
+        };
+
+
         this.roomList = Room.all;
     });

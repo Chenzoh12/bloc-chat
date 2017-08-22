@@ -16,5 +16,15 @@ angular.module('blocChat')
             Message.all = roomMessages;
         };
 
-    return Message;
+        /*
+        * @function sent
+        * @desc Submits messages to firebase database
+        * @param {String} message
+        */
+        Message.send = function(newMessage) {
+            messages.$add(newMessage);
+            //return firebase.ref().child("messages").update(newMessage);
+        };
+
+        return Message;
     });
