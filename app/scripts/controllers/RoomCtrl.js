@@ -9,8 +9,8 @@ angular.module('blocChat')
 
         //Opens modal windown on button press
         roomControl.open = function () {
-          var modalInstance = $uibModal.open({
-            animation: roomControl.animationsEnabled,
+          $uibModal.open({
+            //animation: roomControl.animationsEnabled,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             templateUrl: 'templates/newRoomModal.html',

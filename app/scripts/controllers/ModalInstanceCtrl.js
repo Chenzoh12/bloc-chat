@@ -1,8 +1,6 @@
 angular.module('blocChat')
   .controller('ModalInstanceCtrl', function($scope, $uibModalInstance){
     var modalControl = this;
-    // Get a reference to the database service make available to whole controller
-    var database = firebase.database();
 
     var newRoom = {
       newName: ''

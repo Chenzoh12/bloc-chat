@@ -1,7 +1,57 @@
 .top-buffer {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .left-panel {
-    background-color: #4286f4;
+    background-color: #f7f8f9;
+    height: 100vh;
+}
+
+.left-panel-header {
+    color: dimgray;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.message-container {
+    height: 100vh;
+}
+
+.chat-controls {
+    position: absolute;
+    bottom: 5%;
+    display: inline-block;
+}
+
+.room-names {
+    margin-left: 10%;
+    margin-bottom: 5%;
+    color: gray;
+}
+
+.submit-btn {
+    position: absolute;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.room-name-header {
+    padding-bottom: 15px;
+}
+
+.message {
+    height: 8vh;
+}
+
+.chat-message-user {
+
+}
+
+.chat-message-content {
+    height: 20%;
+}
+
+.chat-message-time {
+    float: right;
+    height: 80%;
 }
